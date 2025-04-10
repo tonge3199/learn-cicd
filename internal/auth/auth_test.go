@@ -29,7 +29,7 @@ func TestGetAPIKey(t *testing.T) {
 		"Auth-Bearer": {header: http.Header{"Connection": {"Keep-Alive"},
 			"Authorization": {"Bearer someToken"}},
 
-			want: "Force-test-fail", err: errors.New("malformed authorization header"),
+			want: "", err: errors.New("malformed authorization header"),
 		},
 	}
 
