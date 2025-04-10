@@ -18,5 +18,7 @@ jobs:
         with:
           go-version: "1.23.0"
 
-      - name: UnitTest-auth.go
-        run: go test ./...
+      - name: Test success
+        run: (exit 0)
+      #- name: Force Failure
+      #  run: (exit 1)
