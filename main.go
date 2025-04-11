@@ -3,7 +3,6 @@ package main
 import (
 	"database/sql"
 	"embed"
-	"github.com/bootdotdev/learn-cicd-starter/internal/database"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
@@ -11,6 +10,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
+
+	"github.com/bootdotdev/learn-cicd-starter/internal/database"
 
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
@@ -90,10 +92,10 @@ func main() {
 		Addr:    ":" + port,
 		Handler: router,
 		// Autofix by ChatGPT
-		//ReadTimeout:       10 * time.Second,
-		//WriteTimeout:      10 * time.Second,
-		//IdleTimeout:       120 * time.Second,
-		//ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       10 * time.Second,
+		WriteTimeout:      10 * time.Second,
+		IdleTimeout:       120 * time.Second,
+		ReadHeaderTimeout: 5 * time.Second,
 	}
 
 	log.Printf("Serving on port: %s\n", port)
